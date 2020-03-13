@@ -8,5 +8,11 @@ This repository contains the data-mining material.
 ```
 conda install pipenv
 pipenv install
+pipenv run bash postBuild
+```
+
+# Run jupyter lab
+
+```
 pipenv run jupyter lab
 ```
