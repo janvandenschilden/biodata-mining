@@ -19,5 +19,5 @@ pipenv run bash postBuild
 
 ```
 pipenv run jupyter lab
+open index.ipynb
 ```
-
