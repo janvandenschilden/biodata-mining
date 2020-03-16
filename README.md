@@ -1,11 +1,15 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/janvandenschilden/biodata-mining/master?urlpath=lab/tree/index.ipynb)
 
-# Introduction
-This repository contains the data-mining material.
+If your want to do the tutorial online via Binder, 
+click on the banner above.
+Otherwise, follow the instruction below.
+
 
 # Installation
 
 ```
+git clone https://github.com/janvandenschilden/biodata-mining.git
+cd biodata-mining
 conda install pipenv
 pipenv install
 pipenv run bash postBuild
@@ -17,5 +21,3 @@ pipenv run bash postBuild
 pipenv run jupyter lab
 ```
 
-# TODO
-Make proper reference to Workshop of Niloofar since this was used as an example
