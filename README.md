@@ -1,6 +1,6 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/janvandenschilden/biodata-mining/master?urlpath=lab/tree/index.ipynb)
 
-If your want to do the tutorial online via Binder, 
+If you want to do the tutorial online via Binder, 
 click on the banner above.
 Otherwise, follow the instruction below.
 
