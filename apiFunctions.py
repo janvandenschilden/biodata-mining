@@ -99,3 +99,7 @@ def uniprotDownload(fileName, query="",format="list",columns="",include="no",com
                limit=limit,
                offset=offset)
     return downloadFile(URL, fileName)
+
+def enaDownload(fileName, accession, format="fasta"):
+    url = "https://www.ebi.ac.uk/ena/data/view/{0}&display={1}".format("AE004091","fasta")
+    return downloadFile(url, fileName)
