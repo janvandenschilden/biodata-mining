@@ -87,7 +87,7 @@ def waitForJob(webDriver):
     sleep(15)
     while len(webDriver.find_elements_by_id("resulttable"))<1:
         sleep(1)
-    sleep(10)
+    sleep(15)
     
 def downloadBlast(webDriver, output,format="list"):
     currentURL=webDriver.current_url
@@ -97,7 +97,7 @@ def downloadBlast(webDriver, output,format="list"):
 def closeDriver(webDriver):
     webDriver.quit()
 
-def blast(sequence, output="temp.list" ,database="UniRef90", eValue=0.001, hits=1000, format="list"):
+def blast(sequence, fileName="temp.list" ,database="UniRef90", eValue=0.001, hits=1000, format="list"):
     def iter():
         driver= openWebDriver()
         openBlastURL(driver)
@@ -108,7 +108,7 @@ def blast(sequence, output="temp.list" ,database="UniRef90", eValue=0.001, hits=
         uploadSequence(driver, sequence)
         submit(driver)
         waitForJob(driver)
-        file=downloadBlast(driver,output,format=format)
+        file=downloadBlast(driver,fileName,format=format)
         closeDriver(driver)
         return file
     

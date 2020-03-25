@@ -145,24 +145,34 @@ def cdhit(fasta, cutoff="0.9"):
     yourlist : str
         yourlist:ID, this value can furhter on be used in queries
     """
-    #--------------------------------------------------------------------------
-    #   Main Code
-    #--------------------------------------------------------------------------
-    driver= openWebDriver()
-    openCdhitURL(driver)
-    uploadFasta(driver,fasta)
-    setIdentityCutOff(driver, cutoff=cutoff)
-    submit(driver)
-    waitForPageRefresh(driver)
-    openCdhitResultURL(driver)
-    baseName=fasta.replace(".fasta","")+"_CDHIT-"+cutoff
-    fastaName, clstrName = downloadFastaClstr(driver, baseName)
-    closeDriver(driver)
-    os.remove("geckodriver.log")     
-    #--------------------------------------------------------------------------
-    #   Return resulting file names
-    #--------------------------------------------------------------------------
-    return fastaName, clstrName
+    def iter():
+        #--------------------------------------------------------------------------
+        #   Main Code
+        #--------------------------------------------------------------------------
+        driver= openWebDriver()
+        openCdhitURL(driver)
+        uploadFasta(driver,fasta)
+        setIdentityCutOff(driver, cutoff=cutoff)
+        submit(driver)
+        waitForPageRefresh(driver)
+        openCdhitResultURL(driver)
+        baseName=fasta.replace(".fasta","")+"_CDHIT-"+str(cutoff)
+        fastaName, clstrName = downloadFastaClstr(driver, baseName)
+        closeDriver(driver)
+        os.remove("geckodriver.log")     
+        #--------------------------------------------------------------------------
+        #   Return resulting file names
+        #--------------------------------------------------------------------------
+        return fastaName, clstrName
+    for i in range(10):
+        try:
+            fastaName, clstrName = iter()
+            if os.path.getsize(fastaName)==0 or os.path.getsize(clstrName)==0:
+                raise
+            else:
+                return fastaName, clstrName
+        except:
+            print("CDHIT, try",i,"failed")
 
 #------------------------------------------------------------------------------
 #   Code to run when called as a script with arguments

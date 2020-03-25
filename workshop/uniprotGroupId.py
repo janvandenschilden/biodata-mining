@@ -177,28 +177,3 @@ def uniprotGroupId(proteinList, databaseFrom="UniProtKB AC/ID"):
          except:
              print("try",i,"failed")
              sleep(1)
-
-
-
-print(uniprotGroupId("test1.list",databaseFrom="UniRef90"))
-
-#------------------------------------------------------------------------------
-#   Code to run when called as a script with arguments
-#------------------------------------------------------------------------------
-'''
-if __name__ == '__main__':
-    #--------------------------------------------------------------------------
-    #   Definition of the command line arguments
-    #--------------------------------------------------------------------------
-    parser = argparse.ArgumentParser()
-    parser.add_argument("proteinList",
-                        help="""Path to file that contains a list of protein 
-                        accession numbers""")
-    parser.add_argument("-i","--databaseFrom", default="UniProtKB AC/ID")
-    args = parser.parse_args()
-    
-    #--------------------------------------------------------------------------
-    #   Main Code
-    #--------------------------------------------------------------------------
-    print(uniprotGroupId(args.proteinList,databaseFrom=args.databaseFrom))
- '''   

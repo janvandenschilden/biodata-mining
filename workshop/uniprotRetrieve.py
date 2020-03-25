@@ -65,8 +65,3 @@ def uniprotRetrieve(fileName, query="",format="list",columns="",include="no",com
                limit=limit,
                offset=offset)
     return download(URL, fileName)
-
-
-uniprotRetrieve("test1.xml",
-                query="yourlist:M20200323A2A5A37CD3FF71F97605B695F360A9FA0A38DB5",
-                format="xml")
